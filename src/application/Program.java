@@ -56,6 +56,7 @@ public class Program {
 				System.out.printf("Common, used or imported (c/u/i)? ");
 				option = sc.next().charAt(0);
 			} while (option != COMMON && option != USED && option != IMPORTED);
+			sc.nextLine();
 			System.out.printf("Name: ");
 			name = sc.nextLine();
 			System.out.printf("Price: ");
@@ -64,6 +65,10 @@ public class Program {
 					: (option == USED) ? usedProduct(sc, name, price) : importedProduct(sc, name, price);
 			products.add(product);
 		}
+		
+		System.out.printf("%nPRICE TAGS:%n");
+		for (Product p: products)
+			System.out.printf("%s%n", p.priceTag());
 
 		sc.close();
 
